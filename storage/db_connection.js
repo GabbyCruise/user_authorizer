@@ -1,9 +1,9 @@
-// /**+---------------------------------------------------+
-//  * Original Author : Gabriel Jonah (Gabby)                        
-//  * Copyright : (c) 2022 authorizer. ALl right reserved
-//  * version number : 0.0.1 beta
-//  * +---------------------------------------------------+
-// */
+/**+---------------------------------------------------+
+  * Original Author : Gabriel Jonah (Gabby)                        
+  * Copyright : (c) 2022 authorizer. ALl right reserved
+  * version number : 0.0.1 beta
+  * +---------------------------------------------------+
+*/
 const Sequelize = require('sequelize');
 const dbConfig  = require('./db_config');
 
