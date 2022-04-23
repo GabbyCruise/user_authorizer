@@ -6,7 +6,7 @@ const dotenv   = require('dotenv');
 const ejs      = require('ejs');
 const parser   = require('body-parser');
 const layout   = require('express-ejs-layouts');
-// const dbConn   = require('./../db/db_connection');
+const dbConn   = require('../storage/db_connection');
 dotenv.config();
 
 module.exports = (app) => {
@@ -50,4 +50,4 @@ module.exports = (app) => {
  app.set('view engine', 'ejs');
 
  return app;
-}
+};
