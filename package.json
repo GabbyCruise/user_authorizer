@@ -1,0 +1,35 @@
+{
+  "name": "user_authorizer_v.0.1",
+  "version": "1.0.0",
+  "description": "A simple user authentication with authorization and privileges",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabbyCruise/user_authorizer_v.0.1.git"
+  },
+  "author": "Gabriel Jonah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabbyCruise/user_authorizer_v.0.1/issues"
+  },
+  "homepage": "https://github.com/GabbyCruise/user_authorizer_v.0.1#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.7",
+    "express": "^4.17.3",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15",
+    "sequelize": "^6.19.0"
+  }
+}

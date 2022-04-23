@@ -1,0 +1,5 @@
+# Dependency directories
+node_modules
+
+# Automatic extension name after a file is added to project
+.DS_Store
