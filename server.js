@@ -1,6 +1,6 @@
 const express = require('express');
 const config = require('./config/app_config');
-// const indexRoute = require('./routes/index');
+const route = require('./routes/main_route');
 // const apiv1 = require('./routes/api.v1.routes/api.v1.routes');
 
 var app = express();
@@ -10,11 +10,8 @@ app.set('port', process.env.PORT || 2022);
 app = config(app);
 
 //------------------ ROUTES ----------------------//
-// app.use('/api', apiv1);
+app.use(route);
 // app.use(indexRoute);
-app.get('/', (req, res) => {
- res.json('homepage');
-})
 
 //--------------  MIDDLEWARE CONFIG --------------//
 app.use(function (req, res, next){
