@@ -1,0 +1,36 @@
+<div class="main_container" style="margin: 1rem 4rem;">
+  
+<h2>All users dashboard</h2>
+
+<div class="main">
+  
+</div>
+
+<div class="list__admins" style="margin: 2rem 4rem;">
+  <div class="messages" style="text-align: center;">
+   <%- include('./partials/messages.ejs') %>
+  </div>
+
+  <label> Welcome <%- username %></label><br>
+  <label>Your level : <%- level %></label><br>
+
+  <% if (level === '2' ){ %> 
+   
+   <div class="new__subadmin">
+    <a href="/products">Products</a>
+   </div>  
+
+   <div class="">
+    <a href="privileges">Manage privileges</a>
+   </div>
+    
+  <% } else if( level === '1' || level === '0') { %> 
+    
+   <div class="new__subadmin">
+   <a href="/products">Products</a>
+   </div>
+   <% } %>
+</div>
+<a href="/logout" class="btn btn-secondary">Logout</a>
+
+</div>

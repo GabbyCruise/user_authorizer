@@ -1,7 +1,14 @@
-const Sequelize = require('sequelize');
-const dbConn = require('./../db_connection');
+/**+---------------------------------------------------+
+ * Original Author : Gabriel Jonah (Gabby)                        
+ * Copyright : (c) 2022 authorizer
+ * version number : 0.0.1 beta
+ * +---------------------------------------------------+
+*/
 
-const Users = dbConn.define('roles', {
+const Sequelize = require('sequelize');
+const dbConn = require('../db_connection');
+
+const Privileges = dbConn.define('privileges', {
     
  auid : {
    type          : Sequelize.BIGINT,
@@ -10,8 +17,8 @@ const Users = dbConn.define('roles', {
    primaryKey    : true,
  },
   
- roleid : {
-   type   : Sequelize.CHAR(20),
+  gpid : {
+   type   : Sequelize.CHAR(30),
    allowNull : true,
    defaultValue : null,
  },
@@ -27,6 +34,7 @@ const Users = dbConn.define('roles', {
    type: Sequelize.STRING, 
    allowNull: true, 
    defaultValue : null, 
+
  },
 
  manage : {
@@ -35,13 +43,19 @@ const Users = dbConn.define('roles', {
    defaultValue : null,
  },
 
+ list : {
+  type: Sequelize.STRING,
+  allowNull: true, 
+  defaultValue : null,
+ },
+
  view : {
    type: Sequelize.STRING,
    allowNull: true, 
    defaultValue : null,
  },
 
- update : {
+ edit : {
    type : Sequelize.STRING,
    allowNull : true, 
    defaultValue : null,
@@ -95,4 +109,4 @@ const Users = dbConn.define('roles', {
   updatedAt: 'updated',
 });
  
- module.exports = Users;
+ module.exports = Privileges;

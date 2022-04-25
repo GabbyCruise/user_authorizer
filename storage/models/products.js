@@ -8,7 +8,7 @@
 const Sequelize = require('sequelize');
 const dbConn = require('./../db_connection');
 
-const Users = dbConn.define('users', {
+const Products = dbConn.define('products', {
   auid : {
     type          : Sequelize.BIGINT,
     allowNull     : false,
@@ -16,8 +16,8 @@ const Users = dbConn.define('users', {
     primaryKey  : true,
   },
 
-  guid : {
-    type : Sequelize.CHAR(40),
+  gpid : {
+    type : Sequelize.CHAR(30),
     allowNull : true,
     defaultValue: null,
   },
@@ -28,60 +28,22 @@ const Users = dbConn.define('users', {
    defaultValue: null,
   },
 
-  email : {
-   type : Sequelize.STRING,
-   allowNull : false,
-  },
-
-  password : {
-   type : Sequelize.STRING,
-   allowNull : false,
-  },
-
   type : {
-   type : Sequelize.STRING,
-   allowNull : false,
-   defaultValue: 'BASIC',
-  },
-
-  level : {
    type : Sequelize.STRING,
    allowNull : true,
    defaultValue: null,
   },
 
-  status : {
+  quantity : {
+   type : Sequelize.STRING,
+   allowNull : true,
+   defaultValue : null,
+  },
+
+  price : {
    type : Sequelize.STRING,
    allowNull : false,
-   defaultValue : 'ACTIVE',
   },
-
-  token: {
-   type : Sequelize.CHAR(100),
-   allowNull : true,
-   defaultValue : null,
-  },
-
-  session : {
-    type : Sequelize.CHAR(100),
-    allowNull : true,
-    defaultValue : null,
-  },
-
-  role : {
-   type : Sequelize.STRING,
-   allowNull : true,
-   defaultValue : null,
- },
-
-
-
-  permissions : {
-   type: Sequelize.STRING,
-    set(val) {
-      this.setDataValue("permissions", JSON.stringify(val ?? ""));
-    },
-  }
 
 }, {
   freezeTableName: true, 
@@ -89,4 +51,4 @@ const Users = dbConn.define('users', {
   updatedAt: 'updated',
 });
 
-module.exports = Users;
+module.exports = Products;

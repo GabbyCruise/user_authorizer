@@ -1,0 +1,236 @@
+<div class="main_container" style="margin: 1rem 4rem;">
+
+ <h2>Manage privileges</h2>
+<div class="main" style="margin-left: 2rem;">
+
+ <style>
+   .privilege__entities{ text-transform: uppercase; font-size: medium; }
+   .privlege__children label{ text-transform: uppercase; font-style: normal; }
+   .user{display: none;}
+   .btn-warning{padding: 0.3rem;}
+ </style>
+
+ <div class="new__subadmin">
+   <!-- CREATE ADMIN ROLES TRIGGER -->
+   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="float: right;">
+    + add role with Privileges
+   </button>
+
+   <!-- ROLE FORM -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="exampleModalLabel">
+             Create New Role
+           </h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+
+         <div class="modal-body">
+           <form action="" method="POST" enctype="">
+             <input type="hidden" name="roles" value="roles">
+             <div class="form__fields">
+
+               <div class="role__holder">
+                 <input type="text" name="name" class="form-contro" placeholder="Enter role title">
+               </div><br>
+           
+               <div class="privilege__container">           
+                 <div class="privlege__children users" id="users" style="margin-left: 2rem;">
+                   <label for="user-c">Create</label>
+                   <input name="create" id="user-c" class="ads_Checkbox" type="checkbox" value="create" /> &nbsp;
+             
+                   <label for="user-m">Manage</label>
+                   <input name="manage" id="user-m" class="ads_Checkbox" type="checkbox" value="manage" /> &nbsp;
+
+                   <label for="user-l">List</label>
+                   <input name="list" id="user-l" class="ads_Checkbox" type="checkbox" value="list" /> &nbsp;
+             
+                   <label for="user-v">View</label>
+                   <input name="view" id="user-v" class="ads_Checkbox" type="checkbox" value="view" /> &nbsp;
+             
+                   <label for="user-u">Update</label>
+                   <input name="update" id="user-u" class="ads_Checkbox" type="checkbox" value="update" /> &nbsp;
+
+                   <label for="user-a">Approve</label>
+                   <input name="approve" id="user-a" class="ads_Checkbox" type="checkbox" value="approve" /> &nbsp;
+             
+                   <label for="user-s">Suspend</label>
+                   <input name="suspend" id="user-s" class="ads_Checkbox" type="checkbox" value="suspend" /> &nbsp;
+           
+                   <label for="user-uns">Unsuspend</label>
+                   <input name="unsuspend" id="user-uns" class="ads_Checkbox" type="checkbox" value="unsuspend" /> &nbsp;
+             
+                   <label for="user-d">Delete</label>
+                   <input name="delete" id="user-d" class="ads_Checkbox" type="checkbox" value="delete" />
+                 </div>
+               </div><br><br>
+              
+             </div>
+
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+               <button type="submit" class="btn btn-primary">Create</button>
+             </div>
+
+           </form>
+         </div>
+         
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <div class="messages" style="text-align: center;">
+   <%- include('./partials/messages.ejs') %>
+ </div>
+
+ <div class="role__container">
+
+   <div class="list__admins">
+     <label for="">Available roles with privileges </label>
+   </div>
+
+
+   <% if (typeof privileges == 'object' && privileges.length > 0){ %> 
+     <!-- <% privileges.forEach(function (privileges) { %>  -->
+       <div class="each__user" >
+         <div class="" style="margin: 0 13rem 0 0;">
+           <label class="btn btn-primary"> <b><%- privileges.title %></b> </label>
+           <% if( privileges.create ){ %>
+            <label class="btn-warning"> <%- privileges.create %> </label>
+           <% } %>
+           <% if( privileges.manage ){ %>
+            <label class="btn-warning"> <%- privileges.manage %> </label>
+           <% } %>
+           <% if( privileges.list ){ %>
+            <label class="btn-warning"> <%- privileges.list %> </label>
+           <% } %>
+           <% if( privileges.view ){ %>
+            <label class="btn-warning"> <%- privileges.view %> </label>
+           <% } %>
+
+           <% if( privileges.edit ){ %>
+            <label class="btn-warning"> <%- privileges.edit %> </label>
+           <% } %>
+
+           <% if( privileges.suspend ){ %>
+            <label class="btn-warning"> <%- privileges.suspend %> </label>
+           <% } %>
+
+           <% if( privileges.unsuspend ){ %>
+            <label class="btn-warning"> <%- privileges.unsuspend %> </label>
+           <% } %>
+
+           <% if( privileges.approve ){ %>
+            <label class="btn-warning"> <%- privileges.approve %> </label>
+           <% } %>
+
+           <% if( privileges.assign ){ %>
+            <label class="btn-warning"> <%- privileges.assign %> </label>
+           <% } %>
+
+           <% if( privileges.duplicate ){ %>
+            <label class="btn-warning"> <%- privileges.duplicate %> </label>
+           <% } %>
+
+           <% if( privileges.delete ){ %>
+            <label class="btn-warning"> <%- privileges.delete %> </label>
+           <% } %>
+         </div>
+
+         <!-- ASSIGN ROLE -->
+         <div class="" style="float: right; margin: 0 10rem 1rem 0;">
+          <a href="#">
+            <label data-toggle="modal" id="<%- privileges.gpid %>" data-target="#assignRole" onclick="getRoleID('<%- privileges.gpid %>', 'admin')">Assign</label>
+          </a> &nbsp; &nbsp;
+
+
+           <!--  -->
+          <div class="modal fade" id="assignRole" tabindex="-1"  role="dialog" aria-labelledby="adminLists" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="adminLists">
+                    ASSIGN ROLE TO ADMINS AND PARISHES
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                <div class="modal-body">
+                  <form action="roles/assign" method="POST" enctype="" id="assign" >
+                    <input type="hidden" name="assign" value="assign">
+                    <div class="form__fields">
+                      <div class="role__holder"> 
+                      </div><br>
+                      LIST OF USERS<br>
+                      <br>
+                      <input type="hidden" name="role_id" value="<%- privileges.gpid %>" id="role_id">
+                     
+
+                      <% if (typeof users == 'object' && users.length > 0){ %> 
+                        <% users.forEach(function (user) { %> 
+                          <div class="">
+                            <a href="#">
+                               
+                              <input type="radio" id="adminID" name="user_id" value="<%- user.guid %>">
+                              <label for="admin"><%- user.name %></label><br>
+                            </a>
+                          </div>
+                        <% }); %>
+                      <% } else { %> 
+                        YOU CURRENTLY DO NOT HAVE SUB ADMINS
+                      <% } %>
+                    </div>
+      
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                      <button type="submit" class="btn btn-primary">Assign</button>
+                    </div>
+
+                    <script>
+                      function getRoleID(ID){
+                        const identifier = ID;
+                        const holdRolId = document.getElementById('role_id').value = identifier;
+                        return identifier;
+                      }
+                    </script>
+                  </form>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+
+          <a href="#">
+            <label>Edit</label>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+              <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+            </svg>
+          </a> &nbsp; &nbsp;
+
+          <a href="#" style="color: red;">
+            <label>Delete</label>
+          </a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        </div>
+       </div>
+       <div class="" style="margin-right: 16rem;">
+        <hr style="border: 1px solid black;">
+       </div>
+     <!-- <% }); %>  -->
+   <% } else { %> 
+     <label>You have no roles & privileges added yet.</label>
+   <% } %>
+ </div>
+</div>
+
+<a href="/logout" class="btn btn-secondary">Logout</a>
+<br><br>
+
+</div>

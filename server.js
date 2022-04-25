@@ -1,7 +1,13 @@
+/**+---------------------------------------------------+
+ * Original Author : Gabriel Jonah (Gabby)                        
+ * Copyright : (c) 2022 authorizer
+ * version number : 0.0.1 beta
+ * +---------------------------------------------------+
+*/
+
 const express = require('express');
 const config = require('./config/app_config');
 const route = require('./routes/main_route');
-// const apiv1 = require('./routes/api.v1.routes/api.v1.routes');
 
 var app = express();
 
@@ -11,7 +17,6 @@ app = config(app);
 
 //------------------ ROUTES ----------------------//
 app.use(route);
-// app.use(indexRoute);
 
 //--------------  MIDDLEWARE CONFIG --------------//
 app.use(function (req, res, next){
@@ -29,3 +34,4 @@ app.use(function(err, req, res, next) {
 app.listen(app.get('port'), function() {
  console.log('User Authorizer started on port ' + app.get('port'));
 });
+

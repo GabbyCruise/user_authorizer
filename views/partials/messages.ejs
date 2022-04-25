@@ -1,0 +1,70 @@
+<head>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<% if (typeof failed == 'object' && failed.length > 0) { %> 
+ <label class="alert alert-danger alert-dismissible">
+   <%= failed %>
+  <button type="button" onclick="this.parentElement.style.display='none';" class="close" data-dismiss="alert">
+    <span aria-hidden="true">&times;</span>
+  </button>
+ </label>
+<% } %>
+
+
+<% if (typeof duplicate == 'object' && duplicate.length > 0) { %> 
+ <label class="alert alert-warning alert-dismissible">
+
+   <%= duplicate %>
+
+  <button type="button" onclick="this.parentElement.style.display='none';" class="close" data-dismiss="alert">
+    <span aria-hidden="true">&times;</span>
+  </button>
+ </label>
+<% } %>
+
+
+
+
+<% if (typeof notFound == 'object' && notFound.length > 0) { %> 
+ <label class="alert alert-warning alert-dismissible">
+
+   <%= notFound %>
+
+  <button type="button" onclick="this.parentElement.style.display='none';" class="close" data-dismiss="alert">
+    <span aria-hidden="true">&times;</span>
+  </button>
+ </label>
+<% } %>
+
+
+<% if (typeof required == 'object' && required.length > 0) { %> 
+ <label class="alert alert-danger alert-dismissible">
+   <%= required %>
+  <button type="button" onclick="this.parentElement.style.display='none';" class="close" data-dismiss="alert">
+    <span aria-hidden="true">&times;</span>
+  </button>
+ </label>
+<% } %>
+
+
+<% if (typeof success == 'object' && success.length > 0) { %> 
+ <label class="alert alert-success alert-dismissible">
+
+   <%= success %>
+
+  <button type="button" onclick="this.parentElement.style.display='none';" class="close" data-dismiss="alert">
+    <span aria-hidden="true">&times;</span>
+  </button>
+ </label>
+<% } %>
+
+
+
+
+
+
+
+
+

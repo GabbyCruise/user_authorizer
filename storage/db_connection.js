@@ -1,6 +1,6 @@
 /**+---------------------------------------------------+
   * Original Author : Gabriel Jonah (Gabby)                        
-  * Copyright : (c) 2022 authorizer. ALl right reserved
+  * Copyright : (c) 2022 authorizer
   * version number : 0.0.1 beta
   * +---------------------------------------------------+
 */
