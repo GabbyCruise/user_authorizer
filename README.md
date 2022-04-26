@@ -10,11 +10,15 @@ Is a simple Authentication System with User Authorization &amp; privileges built
   <img src="/demo/dashboard.jpg" width="700" title="Login page">
   <h5>create privileges</h5>
   <img src="/demo/createPrivileges.jpg" width="700" title="Login page">
+  
+  <h5>Role and Privilege list</h5>
+  <img src="/demo/role&privileges.jpg" width="700" title="Login page">
+  
   <h5>Asgin Roles with priviles</h5>
   <img src="/demo/assign.jpg" width="700" title="Login page">
   
   <h5>product page</h5>
-  <img src="/demo/assign.jpg" width="700" title="Login page">
+  <img src="/demo/product_list.jpg" width="700" title="Login page">
  
 </p>
 
