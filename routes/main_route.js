@@ -37,9 +37,4 @@ routes.get('/products/details', productController.viewProducts);
 
 routes.get('/products/delete/:productid', productController.deleteProducts);
 
-
-
-
-
-
 module.exports = routes;

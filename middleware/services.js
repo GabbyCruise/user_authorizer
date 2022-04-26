@@ -44,7 +44,7 @@ async function updateUser(Table, data, id ){
 };
 
 
-//--------- COMFIRM ADMIN AUTHORIZATION ----------//
+//--------- ADMIN AUTHORIZATION ----------//
 async function isUserAuthorized(userGuid, item){
  const is_user = await Users.findOne({ where : { guid : userGuid}});  
 

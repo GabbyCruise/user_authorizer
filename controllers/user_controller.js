@@ -51,7 +51,7 @@ exports.homepage = async (req, res) => {
  
  const data = [ superAd, admin, user ];
  await Users.bulkCreate(data).catch((err) => {
-  req.flash('failed', 'There was an error initializing the system, try again. ERROR: ' + err.message);
+  req.flash('failed', message + ' ERROR:: ' + err.message);
   return res.render('index', {
    failed : req.flash('failed'),
   });
@@ -76,7 +76,6 @@ exports.login = async (req, res) => {
 
  try {
 
-  //confirm parish and parish privileges
   const isUser = await loginUser(Users, email, pass).then((response) => { return response });
   
   if(isUser[0] !== 1){
@@ -106,6 +105,7 @@ exports.dashboard = async (req, res) => {
 
  //super admin user
  if(req.session.level === 2){
+   //serve only super admin data
   return res.render('dashboard', {
    username : req.session.user_name,
    level : req.session.level,
@@ -114,6 +114,7 @@ exports.dashboard = async (req, res) => {
 
  //admin user
  if(req.session.level === 1){
+   //serve admin data
   return res.render('dashboard', {
    username : req.session.user_name,
    level : req.session.level,
@@ -122,6 +123,7 @@ exports.dashboard = async (req, res) => {
 
  //basic user
  return res.render('dashboard', {
+   //search user & general data
   username : req.session.user_name,
   level : req.session.level,
  });
@@ -159,7 +161,7 @@ exports.createPrivileges = async ( req, res ) => {
   }
 
   const createPrivs = await Privileges.create(privilegeData).catch((err) => {
-   req.flash('failed', 'There was an error creating this record. ERROR: ' + err.message);
+   req.flash('failed', message + ' ERROR:: ' + err.message);
   });
 
   req.flash('success', 'Role with privileges added successfully');
@@ -173,16 +175,20 @@ exports.createPrivileges = async ( req, res ) => {
 
 
 exports.listPrivileges = async (req, res) => {
+  const user = req.session.user_name;
  try {
    const privilegeData = await Privileges.findAll({}).catch((err) => {
-    req.flash('duplicate', 'There was an error listing your privileges');
+    req.flash('failed' + message + ' ERROR:: ' + err.message);
     return res.redirect('/privileges');
    });
   
    const users = await Users.findAll({});
+   var removeSuperAdminFromList = users.slice(1);
+    
    return res.render('privileges', {
     privileges : privilegeData,
-    users : users
+    users : removeSuperAdminFromList,
+    username : user,
    });
 
  } catch ( error ) {

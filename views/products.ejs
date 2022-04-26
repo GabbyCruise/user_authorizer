@@ -5,7 +5,7 @@
   <%- include('./partials/messages.ejs') %>
   </div>
 
-  <label> Welcome, <%- username %></label><br>
+  <label style="color:rgb(18, 129, 129);"> Welcome, <%- username %></label><br>
 
 
   <div class="" style="margin: 1rem 3rem;">
@@ -39,9 +39,9 @@
                </a>
 
                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="update/<%- product.gpid %>">Update</a>
+                <a class="dropdown-item" href="#">Update</a>
 
-                <a class="dropdown-item" href="suspend/<%- product.gpid %>" style="color: rgba(109, 74, 9, 0.507);">Suspend</a>
+                <a class="dropdown-item" href="#" style="color: rgba(109, 74, 9, 0.507);">Suspend</a>
 
                 <a class="dropdown-item" href="products/delete/<%- product.gpid %>" style="color: red;">Delete</a>
                </div>

@@ -142,12 +142,11 @@ exports.viewProducts = async (req, res) => {
 };
 
 exports.updateProducts = async (req, res) => {
- return res.json('update Products page');
+  //update product details
 };
 
 exports.deleteProducts = async (req, res) => {
  const user = req.session.user_id;
- const username = req.session.user_name;
  const userLevel = req.session.level;
  const productID = req.params.productid;
  if(!user){
@@ -181,4 +180,4 @@ exports.deleteProducts = async (req, res) => {
  };
 };
 
-/********* END OF MODULE **********/
+/********* END OF PRODUCT MODULE **********/
