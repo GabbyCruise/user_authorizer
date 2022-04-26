@@ -1,7 +1,16 @@
 # user_authorizer_v.01
 User Authorizer Version 0.1
-Is a simple Authentication System with User Authorization &amp; privileges
+Is a simple Authentication System with User Authorization &amp; privileges built with nodejs, express, sequelize etc
 
+### SCREEN SHOTS
+<p align="left">
+  <h5>Login Page</h5>
+  <img src="/demo/login.jpg" width="700" title="Login page">
+  <img src="/demo/dashboard.jpg" width="700" title="Login page">
+  <img src="/demo/createPrivileges.jpg" width="700" title="Login page">
+  <img src="/demo/assign.jpg" width="700" title="Login page">
+ 
+</p>
 
 
 
