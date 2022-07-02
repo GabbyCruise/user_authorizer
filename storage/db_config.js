@@ -1,14 +1,14 @@
 /**+---------------------------------------------------+
  * Original Author : Gabriel Jonah (Gabby)                        
- * Copyright : (c) 2022 authorizer. ALl right reserved
+ * Copyright : (c) 2022 authorizer
  * version number : 0.0.1 beta
  * +---------------------------------------------------+
 */
 
 module.exports = {
  HOST     : 'localhost',
- USER     : 'your-db-user-name',
- PASSWORD : 'your-db-password',
+ USER     : 'root',
+ PASSWORD : 'password',
  PORT     : 3306,
  DB       : 'authorizer',
  dialect  : 'mysql',
